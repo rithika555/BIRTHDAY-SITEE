@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: #fff0f5;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #ff4d88;
+      margin-top: 20px;
+    }
+
+    .envelope-screen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #ffe6f2;
+      position: relative;
+    }
+
+    .envelope {
+      font-size: 10rem;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .content-screen, .peach-page, .final-page {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px;
+      gap: 20px;
+      background: #fff0f5;
+    }
+
+    .photo-container, .video-container {
+      position: relative;
+      width: 280px;
+      text-align: center;
+    }
+
+    .photo, .video {
+      width: 100%;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .photo:hover, .video:hover {
+      transform: scale(1.05);
+    }
+
+    .message {
+      display: none;
+      font-size: 0.85rem;
+      color: #ff4d88;
+      margin-top: 8px;
+    }
+
+    .reveal {
+      display: block;
+    }
+
+    .scroll-trigger {
+      width: 100%;
+      text-align: center;
+      margin-top: 80px;
+      cursor: pointer;
+    }
+
+    .scroll-trigger h2 {
+      font-size: 4rem;
+      margin-bottom: 0;
+    }
+
+    .scroll-trigger p {
+      font-size: 1.6rem;
+      font-family: cursive;
+      color: #ff66cc;
+    }
+
+    .peach-page, .final-page {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .emotional {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 20px auto;
+      color: #333;
+    }
+
+    .next-photo {
+      margin-top: 20px;
+      width: 300px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .boo-small {
+  width: 80px !important;
+}
+
+
+    .click-sign {
+      margin-top: 10px;
+      color: #ff66cc;
+      font-style: italic;
+      font-size: 1rem;
+    }
+
+    .reveal-section {
+      animation: fadeIn 0.6s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .media-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.media-item img,
+.media-item video {
+  max-width: 180px;
+  height: auto;
+  border-radius: 12px;
+}
+.zoom-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+.zoom-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 14px;
+  box-shadow: 0 0 15px white;
+}
+ </style>
+</head>
+<body>
+
+  <!-- Envelope Screen -->
+  <div class="envelope-screen" id="envelopeScreen">
+    <div class="envelope" id="envelope">💌</div>
+  </div>
+
+  <!-- Content Screen -->
+  <div class="content-screen" id="contentScreen">
+    <h1>HAPPY BIRTHDAY BABYGIRLIEEE! 🌸͙֒✧˚ ༘ ⋆｡˚♡</h1>
+
+   <div class="media-gallery">
+  <div class="media-item"><img src="images/pic 101.jpg" onclick="showMessage('cutieee, still got the same smile huh 💕')"></div>
+  <div class="media-item"><img src="images/pic2.jpg" onclick="showMessage('kyu paise maang raha hai gareeb se ')"></div>
+  <div class="media-item"><img src="images/pic 102.jpg" onclick="showMessage('you're so adorable 🥹)"></div>
+  <div class="media-item"><img src="images/pic 103.jpg" onclick="showMessage('lol park wala mirror is very dirty🪞🪩')"></div>
+  <div class="media-item"><img src="images/pic 104.jpg" onclick="showMessage('remember photos lete time wo uncle hume kese ghur rhe the, unhe laga we are doing something else lol😂😂')"></div>
+  <div class="media-item"><img src="images/pic 105.jpg" onclick="showMessage('you stll have to take this flower bouquet okayyy!! 😘💐🪻🌸')"></div>
+  <div class="media-item"><img src="images/pic 106.jpg" onclick="showMessage('this has to be my favourite photo👉🏻👈🏻 💕')"></div>
+  <div class="media-item"><img src="images/pic new1.jpg" onclick="showMessage('kya dhyaan se par raha hai, itna pdhai bhi kar leta toh bhai intenship lag jaati lol')"></div>
+  <div class="media-item"><img src="images/pic new2.jpg" onclick="showMessage(''ofcourse i'll help you re-create it 👉🏻👈🏻 💋 💕')"></div>
+  <div class="media-item"><img src="images/pic new3.jpg" onclick="showMessage('umhmm handsomee huhh💕')"></div>
+  <div class="media-item"><img src="images/new1.jpg" onclick="showMessage('kya achhaa photo liya mene iska polaroid nikalke dungi lol😂 💕')"></div>
+  <div class="media-item"><img src="images/new2.jpg" onclick="showMessage('Same same but different 💕')"></div>
+  <div class="media-item"><img src="images/new3.jpg" onclick="showMessage('photo liya tune beyyy iske paise de hehehehe 🙄😏😏')"></div>
+  <div class="media-item"><img src="images/new4.jpg" onclick="showMessage('allleee my babyyyyy, neend me apne ap ko bechne chala lmao , ily bbg muaaahhhh')"></div>
+  <div class="media-item"><img src="images/new5.jpg" onclick="showMessage('i'll always be so grateful usdin ke liye ki you came despite of the fact tune subhe rulaya tha but literally made my bday special thank you sm babyyy💕')"></div>
+  <div class="media-item"><img src="images/pic new4.jpg" onclick="showMessage('LASHHHHHHHH!!!! POLICEEEE')"></div>
+  <div class="media-item"><img src="images/pic new5.jpg" onclick="showMessage('kya photo hai lol😂')"></div>
+  <div class="media-item"><img src="images/pic new6.jpg" onclick="showMessage('the day after this photo was taken u literally proposed me, pretty sure you're regreting but nvm 😜🩷😆 ')"></div>
+  <div class="media-item"><img src="images/pic1.jpg" onclick="showMessage('you look so sweet reading all these 🥺🥺🥺')"></div>
+ 
+  <div class="media-item"><img src="images/pic3.jpg" onclick="showMessage('there's just something about laughing with u idk how to explain that thing but for a moment i just forget everything might sound a bit dramatic but it's true as fuck! and i loveee youuu thank you for existing babyyy💕')"></div>
+  <div class="media-item"><img src="images/pic4.jpg" onclick="showMessage('we should definitely be taking more pics, looking back at them makes me so happy no matter how mad i am at you 😌🫴🏻')"></div>
+  <div class="media-item"><img src="images/pic5.jpg" onclick="showMessage('ahhh howww i loveee hugging you, if i can do one thing forever i would definitely be hugging you like a sloth lmao💋💋😜 ')"></div>
+  
+  <div class="media-item"><img src="images/pic7.jpg" onclick="showMessage('sharmila bachha')"></div>
+  <div class="media-item"><img src="images/pic8.jpg" onclick="showMessage('us being adorable as usual 💕')"></div>
+  <div class="media-item"><img src="images/pic11.jpg" onclick="showMessage('i look like a bloated pig, 🦫🦦<-- that's us hahaha')"></div>
+  <div class="media-item"><img src="images/pic12.jpg" onclick="showMessage('i wish i could relive this moment forever🧿🧿🩷')"></div>
+  <div class="media-item"><img src="images/pic13.jpg" onclick="showMessage('i wish nothing changes between us  💕')"></div>
+  <div class="media-item"><img src="images/pic14.jpg" onclick="showMessage('bina bataye mera ajeeb sa photos lete or smirk karte hue aap😆')"></div>
+  <div class="media-item"><img src="images/pic15.jpg" onclick="showMessage('i hope tera bracelet tu waps apne paas le aye uni se')"></div>
+  <div class="media-item"><img src="images/pic16.jpg" onclick="showMessage('AHHH HANDSOMEEE BABYYYYYYY , one of my fav photo🩷💋')"></div>
+  <div class="media-item"><img src="images/pic17.jpg" onclick="showMessage('at this point i definitely in need of a longgg hug 🫂🫂')"></div>
+  <div class="media-item"><img src="images/pic18.jpg" onclick="showMessage('bruh abhi bhi i get so shy eye contact se bhi, wese toh abhi i can stare at u all day wo alag baat hai 😘💕')"></div>
+  <div class="media-item"><img src="images/pic19.jpg" onclick="showMessage(' 💕💕')"></div>
+  <div class="media-item"><img src=images/pic20.jpg" onclick="showMessage('kyunn thak gaya  nah buddha insaan, bracelet nahi dilwaya usdin yaad rkhungi🙄😒😒😒')"></div>
+  <div class="media-item"><img src="images/pic21.jpg" onclick="showMessage('CUTIEEE, lovee youuuu bbg 🫶🏻🫶🏻💗💗 ')"></div>
+  <div class="media-item"><img src="images/pic24.jpg" onclick="showMessage('ughhh i misss holding your handssssss need to meet asap babeee🫠😩🥺 ')"></div>
+  <div class="media-item"><img src="images/pic26.jpg" onclick="showMessage('my hair is hairing and my nails are slaying in this specific pic baaki tu toh aise hi sundar hai 🤌🏻🫵🏻👅😆😂😂')"></div>
+  <div class="media-item"><img src="images/pic27.jpg" onclick="showMessage('such a sweet picture usdin tu apne shaam ke class ke liye uni ja raha tha remember saturday ko wo bhi lol and tune mujhe coffee pilaya tha ek uncle ke shop se was better than being in a cafe bhai everythin's great with you place matter nahu karta 💕')"></div>
+  <div class="media-item"><img src="images/pic28.jpg" onclick="showMessage('kya sidha sadha school jane wala bacha lag raha hai lol😂')"></div>
+  <div class="media-item"><img src="images/pic29.jpg" onclick="showMessage('aisa eyes dekh ke toh koi bhi pighal jaye😂🫠 ')"></div>
+  <div class="media-item"><video src="images/vidnew7.mp4" controls onclick="showMessage('don't spit the water daddy lmao 😂 ')"></video></div>
+  <div class="media-item"><video src="images/vid 102.mp4" controls onclick="showMessage('fir bhi send kiya mene be gratefullll')"></video></div>
+  <div class="media-item"><video src="images/vid new 3.mp4" controls onclick="showMessage('i'm missing you bbg')"></video></div>
+  <div class="media-item"><video src="images/vid new1.mp4" controls onclick="showMessage('I like you more than I planned to')"></video></div>
+  <div class="media-item"><video src="images/vid new2.mp4" controls onclick="showMessage('waps se jabardasti video banate hue paise deee')"></video></div>
+  <div class="media-item"><video src="images/vid1.mp4" controls onclick="showMessage('mene kese bola isme ye video nahi tha 😂 ')"></video></div>
+  <div class="media-item"><video src="images/vid2.mp4" controls onclick="showMessage('BABYYGIRLIEEEE🎀🎀')"></video></div>
+  <div class="media-item"><video src="images/vid3.mp4" controls onclick="showMessage('🎀🎀 ')"></video></div>
+  <div class="media-item"><video src="images/vid4.mp4" controls onclick="showMessage('dono hot lag rahe hai isme toh')"></video></div>
+  <div class="media-item"><video src="images/vid5.mp4" controls onclick="showMessage('literally pasina pakar raha tha fir usi haath se tune momos khaya tha')"></video></div>
+  <div class="media-item"><video src="images/vid6.mp4" controls onclick="showMessage('you being busy as usual')"></video></div>
+  <div class="media-item"><video src="images/vid7.mp4" controls onclick="showMessage('how cutsiee, u better bring your bracelet back home from uni🔪🔪 ')"></video></div>
+  <div class="media-item"><video src="images/vid9.mp4" controls onclick="showMessage('lol😂')"></video></div>
+  <div class="media-item"><video src="images/vid10.mp4" controls onclick="showMessage('I feel so freaking better when you’re around, i can never express the comfort i feel through words ily💋💋')"></video></div>
+  <div class="media-item"><video src="images/vid11.mp4" controls onclick="showMessage('alien wala filter toh banta hai boss🫡🫡🫡')"></video></div>
+  <div class="media-item"><video src="images/vid12.mp4" controls onclick="showMessage('abdal kalam bulee lmao😂😂 ')"></video></div>
+  <div class="media-item"><video src="images/vid13.mp4" controls onclick="showMessage('kya cute hu me hai nahhh hehehe 👉🏻👈🏻🌸')"></video></div>
+  <div class="media-item"><video src="images/vid14.mp4" controls onclick="showMessage('Even traffic feels bearable if I’m stuck in it with you 🫴🏻🫶🏻 ')"></video></div>
+  <div class="media-item"><video src="images/vid15.mp4" controls onclick="showMessage('my cuteeee not so little babygirllll🥺🩷🫶🏻')"></video></div>
+  <div class="media-item"><video src="images/vid16.mp4" controls onclick="showMessage('eheee nakliii daat ki shineeeee ⚡⚡')"></video></div>
+  <div class="media-item"><video src="images/vid17.mp4" controls onclick="showMessage('that day was very special right itna maza aya tha🥺🥺 ')"></video></div>
+  <div class="media-item"><video src="images/vid18.mp4" controls onclick="showMessage('bruh in case u don't remember that day i gave u the first bj 😂')"></video></div>
+  <div class="media-item"><video src="images/vid19.mp4" controls onclick="showMessage('ahhh my babyyyyy 😩🥺')"></video></div>
+</div>
+<!-- END MEDIA SECTION -->
+
+    <!-- Clickable Peach Emoji Trigger -->
+    <div class="scroll-trigger" onclick="showPeachPage()">
+      <h2>🍑</h2>
+      <p>press the ass</p>
+    </div>
+  </div>
+
+  <!-- Peach Page -->
+  <div class="peach-page" id="peachPage">
+    <img src="images/pic23.jpg" class="next-photo">
+    <p class="emotional">
+      I know we've had our low days, the kind where everything feels heavy and distance hurts more than usual. I know I can be a lot to handle sometimes with all my overthinking and insecurities. But through it all one thing stays clear to me: I’m so grateful to have you.
+
+Even when things get tough just thinking about you brings a kind of calm I can't explain. It's not loud or dramatic, it's a quiet kind of comfort like home. And I know your heart feels it too in its own way.
+
+We can’t always call or meet or hear each other’s voices the way we want to, but something in me still believes this will work out. I don’t just want to be with you through the easy parts. I want to grow with you even through the hard ones.
+
+I want to see you win in life, chase your dreams, and do everything that makes you feel alive. And I want to be there, cheering for you, growing beside you, choosing us no matter what.
+
+Happy Birthday my love.
+Even if I can’t be right next to you now, my heart is wrapped around yours in the biggest warmest hug. You are so loved and I hope you feel that with every breath you take today (jayda hogaya ye breathe wala i guess but u get the ponit lol?! i loveeeee youuu sm babygirllll🥺🩷🫶🏻)
+
+
+    </p>
+
+   <img src="images/boo.jpg" class="next-photo boo-small" onclick="showFinalPage()">
+
+    <div class="click-sign">please click</div>
+  </div>
+
+  <!-- Final Page -->
+  <div class="final-page" id="finalPage">
+    <img src="images/pic22.jpg" class="next-photo">
+    <p class="emotional">
+      tadawwww again happy birthday bbg here’s to 22 ilysm 🩷 I'm really grateful for you 🫂
+    </p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+ <script>
+    document.getElementById('envelope').addEventListener('click', () => {
+      document.getElementById('envelopeScreen').style.display = 'none';
+      document.getElementById('contentScreen').style.display = 'flex';
+
+
+       // 🎉 CONFETTI EFFECT HERE 🎉
+    confetti({
+      particleCount: 200,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+  });
+    
+  function toggleMessage(element) {
+      const msg = element.nextElementSibling;
+      if (msg) msg.classList.toggle('reveal');
+    }
+
+    function showPeachPage() {
+      document.getElementById('contentScreen').style.display = 'none';
+      document.getElementById('peachPage').style.display = 'flex';
+    }
+
+    function showFinalPage() {
+      document.getElementById('peachPage').style.display = 'none';
+      document.getElementById('finalPage').style.display = 'flex';
+    }
+      // ✅ Add this to show messages when media is clicked
+  function showMessage(msgText) {
+    const msg = document.createElement('div');
+    msg.className = 'message reveal';
+    msg.textContent = msgText;
+    event.target.parentElement.appendChild(msg);
+    setTimeout(() => msg.remove(), 3000);
+  }
+   // 🔍 Image Zoom on Click
+ document.querySelectorAll('.media-gallery img').forEach(img => {
+    img.addEventListener('click', function (e) {
+      e.stopPropagation(); // prevent message toggle
+      const zoomModal = document.getElementById('zoomModal');
+      const zoomedImg = document.getElementById('zoomedImg');
+      zoomedImg.src = this.src;
+      zoomModal.style.display = 'flex';
+    });
+  });
+
+  document.querySelectorAll('.media-gallery img').forEach(img => {
+    img.addEventListener('click', function () {
+      // Create the overlay
+      const overlay = document.createElement('div');
+      overlay.style.position = 'fixed';
+      overlay.style.top = 0;
+      overlay.style.left = 0;
+      overlay.style.width = '100vw';
+      overlay.style.height = '100vh';
+      overlay.style.backgroundColor = 'rgba(0,0,0,0.6)';
+      overlay.style.display = 'flex';
+      overlay.style.justifyContent = 'center';
+      overlay.style.alignItems = 'center';
+      overlay.style.zIndex = 9999;
+      overlay.style.padding = '20px';
+      overlay.style.boxSizing = 'border-box';
+
+      // Create the zoom box
+      const zoomBox = document.createElement('div');
+      zoomBox.style.display = 'flex';
+      zoomBox.style.flexWrap = 'wrap';
+      zoomBox.style.gap = '20px';
+      zoomBox.style.background = '#fff0f5';
+      zoomBox.style.padding = '20px';
+      zoomBox.style.borderRadius = '20px';
+      zoomBox.style.maxWidth = '90vw';
+      zoomBox.style.maxHeight = '80vh';
+      zoomBox.style.overflow = 'auto';
+      zoomBox.style.boxShadow = '0 5px 20px rgba(0,0,0,0.2)';
+
+      // Zoomed image
+      const zoomImg = document.createElement('img');
+      zoomImg.src = this.src;
+      zoomImg.style.width = '300px';
+      zoomImg.style.borderRadius = '15px';
+      zoomImg.style.objectFit = 'contain';
+
+      // Message beside it
+      const message = document.createElement('div');
+      message.innerText = '💗 So cute!';
+      message.style.fontFamily = 'cursive';
+      message.style.fontSize = '1.2rem';
+      message.style.color = '#ff4d88';
+      message.style.maxWidth = '250px';
+      message.style.alignSelf = 'center';
+
+      // Append all
+      zoomBox.appendChild(zoomImg);
+      zoomBox.appendChild(message);
+      overlay.appendChild(zoomBox);
+      document.body.appendChild(overlay);
+
+      // Remove on click
+      overlay.addEventListener('click', () => overlay.remove());
+    });
+  });
+  // Match message from the clicked image's onclick
+document.querySelectorAll('.media-gallery img').forEach(img => {
+  img.addEventListener('click', function () {
+    const onclickAttr = this.getAttribute('onclick');
+    const match = onclickAttr && onclickAttr.match(/showMessage\('(.*)'\)/);
+    const messageText = match ? match[1] : '💗 So cute!';
+
+    // Create the overlay
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.backgroundColor = 'rgba(0,0,0,0.6)';
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.style.zIndex = 9999;
+    overlay.style.padding = '20px';
+    overlay.style.boxSizing = 'border-box';
+
+    // Create the zoom box
+    const zoomBox = document.createElement('div');
+    zoomBox.style.display = 'flex';
+    zoomBox.style.flexWrap = 'wrap';
+    zoomBox.style.gap = '20px';
+    zoomBox.style.background = '#fff0f5';
+    zoomBox.style.padding = '20px';
+    zoomBox.style.borderRadius = '20px';
+    zoomBox.style.maxWidth = '90vw';
+    zoomBox.style.maxHeight = '80vh';
+    zoomBox.style.overflow = 'auto';
+    zoomBox.style.boxShadow = '0 5px 20px rgba(0,0,0,0.2)';
+
+    // Zoomed image
+    const zoomImg = document.createElement('img');
+    zoomImg.src = this.src;
+    zoomImg.style.width = '300px';
+    zoomImg.style.borderRadius = '15px';
+    zoomImg.style.objectFit = 'contain';
+
+    // Message beside it (from the onclick)
+    const message = document.createElement('div');
+    message.innerText = messageText;
+    message.style.fontFamily = 'cursive';
+    message.style.fontSize = '1.2rem';
+    message.style.color = '#ff4d88';
+    message.style.maxWidth = '250px';
+    message.style.alignSelf = 'center';
+
+    // Append
+    zoomBox.appendChild(zoomImg);
+    zoomBox.appendChild(message);
+    overlay.appendChild(zoomBox);
+    document.body.appendChild(overlay);
+
+    // Remove on click
+    overlay.addEventListener('click', () => overlay.remove());
+  });
+});
+
+ </script>
+  <!-- Zoom Modal for Images -->
+<div id="zoomModal" class="zoom-modal" onclick="this.style.display='none'">
+  <img id="zoomedImg" src="" alt="Zoomed Image">
+</div>
+
+</body>
+</html>
