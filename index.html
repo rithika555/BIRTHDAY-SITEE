@@ -243,7 +243,7 @@
   <div class="media-item"><video src="images/vid15.mp4" controls onclick="showMessage('my cuteeee not so little babygirllll🥺🩷🫶🏻')"></video></div>
   <div class="media-item"><video src="images/vid16.mp4" controls onclick="showMessage('eheee nakliii daat ki shineeeee ⚡⚡')"></video></div>
   <div class="media-item"><video src="images/vid17.mp4" controls onclick="showMessage('that day was very special right itna maza aya tha🥺🥺 ')"></video></div>
-  <div class="media-item"><video src="images/vid18.mp4" controls onclick="showMessage('bruh in case u don't remember that day i gave u the first bj 😂')"></video></div>
+  <div class="media-item"><video src="images/vid18.mp4" controls onclick="showMessage('i miss your kisses 😩🩷💋')"></video></div>
   <div class="media-item"><video src="images/vid19.mp4" controls onclick="showMessage('ahhh my babyyyyy 😩🥺')"></video></div>
 </div>
 <!-- END MEDIA SECTION -->
@@ -259,17 +259,19 @@
   <div class="peach-page" id="peachPage">
     <img src="images/pic23.jpg" class="next-photo">
     <p class="emotional">
-      I know we've had our low days, the kind where everything feels heavy and distance hurts more than usual. I know I can be a lot to handle sometimes with all my overthinking and insecurities. But through it all one thing stays clear to me: I’m so grateful to have you.
+      I know we've had our low days, the kind where everything feels heavy and distance hurts more than usual. I know I can be a lot to handle sometimes with all my overthinking and insecurities. But through it all one thing stays clear to me that i’m so grateful to have you
 
-Even when things get tough just thinking about you brings a kind of calm I can't explain. It's not loud or dramatic, it's a quiet kind of comfort like home. And I know your heart feels it too in its own way.
+Even when things get tough just thinking about you brings a kind of calm i can't explain. It's not loud or dramatic, it's a quiet kind of comfort like home. And I know your heart feels it too in its own way or maybe not umm it's okay tho
 
-We can’t always call or meet or hear each other’s voices the way we want to, but something in me still believes this will work out. I don’t just want to be with you through the easy parts. I want to grow with you even through the hard ones.
+and again we can’t always call or meet or hear each others voices the way we want to but something in me still believes this will work out. I don’t just want to be with you through the easy parts. I want to grow with you even through the hard ones.
 
-I want to see you win in life, chase your dreams, and do everything that makes you feel alive. And I want to be there, cheering for you, growing beside you, choosing us no matter what.
+I want to see you win in life, chase your dreams, and do everything that makes you feel alive. And I want to be there cheering for you, growing beside you, choosing us no matter what!!!!
 
 Happy Birthday my love.
-Even if I can’t be right next to you now, my heart is wrapped around yours in the biggest warmest hug. You are so loved and I hope you feel that with every breath you take today (jayda hogaya ye breathe wala i guess but u get the ponit lol?! i loveeeee youuu sm babygirllll🥺🩷🫶🏻)
+Even if I can’t be right next to you now, my heart is wrapped around yours in the biggest warmest hug. You are so loved and I hope you feel that with every breath you take today (jayda hogaya ye breathe wala i guess but u get the point lol?! i loveeeee youuu sm babygirllll🥺🩷🫶🏻)
 
+
+  
 
     </p>
 
@@ -284,8 +286,37 @@ Even if I can’t be right next to you now, my heart is wrapped around yours in 
     <p class="emotional">
       tadawwww again happy birthday bbg here’s to 22 ilysm 🩷 I'm really grateful for you 🫂
     </p>
+   <!-- 🎀 Bow trigger -->
+  <div style="display:flex; flex-direction:column; align-items:center; margin-top:20px;">
+    <div class="click-sign" 
+         style="cursor:pointer; font-size:2.5rem;" 
+         onclick="showCakePage()">🎀</div>
+    <p style="margin-top:8px; font-size:1.2rem; color:#ff66cc; font-weight:bold;">
+      click this bow babe 🐻‍❄️
+    </p>
+  </div>
+</div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+   <!-- Cake Page -->
+<div class="cake-page" id="cakePage" 
+     style="display:none; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px; background:#fff0f5; height:100vh;">
+
+  <div style="font-size:10rem; line-height:1;">🎂</div>
+
+  <div id="candles" style="font-size:3rem; margin:20px 0; letter-spacing:10px;">
+    🕯️ 🕯️ 🕯️
+  </div>
+
+  <button onclick="blowCandles()" 
+          style="padding:12px 25px; font-size:1.2rem; border:none; border-radius:12px; background:#ff66cc; color:white; cursor:pointer; margin-top:20px;">
+    Blow the candles
+  </button>
+</div>
+
+  </div>
+
 
  <script>
     document.getElementById('envelope').addEventListener('click', () => {
@@ -451,6 +482,44 @@ document.querySelectorAll('.media-gallery img').forEach(img => {
     overlay.addEventListener('click', () => overlay.remove());
   });
 });
+
+function showCakePage() {
+  document.getElementById("finalPage").style.display = "none";
+  document.getElementById("cakePage").style.display = "flex";
+}
+
+function showCakePage() {
+  document.getElementById("finalPage").style.display = "none";
+  document.getElementById("cakePage").style.display = "flex";
+}
+
+function blowCandles() {
+  const candles = document.getElementById("candles");
+  let flames = ["🕯️","🕯️","🕯️"];
+  let i = 0;
+
+  let interval = setInterval(() => {
+    if (i < flames.length) {
+      flames[i] = "💨"; // blowing effect
+      candles.textContent = flames.join(" ");
+      i++;
+    } else {
+      clearInterval(interval);
+      candles.textContent = "🎉 All candles blown out 🎉     HAPPYYY WALAAAA BIRTHDAYYYYYYYYY muaaahhhhh";
+
+      // 🎉 Confetti burst
+      if (typeof confetti !== "undefined") {
+        confetti({
+          particleCount: 200,
+          spread: 70,
+          origin: { y: 0.7 }
+        });
+      }
+    }
+  }, 600);
+}
+
+
 
  </script>
   <!-- Zoom Modal for Images -->
